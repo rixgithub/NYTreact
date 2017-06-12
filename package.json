@@ -2,9 +2,10 @@
   "name": "nytreact",
   "version": "1.0.0",
   "description": "NYT react app",
-  "main": "index.js",
+  "main": "public/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack -w"
   },
   "repository": {
     "type": "git",
@@ -30,9 +31,9 @@
     "express-handlebars": "^3.0.0",
     "mongoose": "^4.10.5",
     "morgan": "^1.8.2",
-    "react": "^15.5.4",
-    "react-dom": "^15.5.4",
-    "react-router": "^4.1.1"
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3",
+    "react-router": "^2.4.1"
   },
   "devDependencies": {
     "babel-core": "^6.3.13",

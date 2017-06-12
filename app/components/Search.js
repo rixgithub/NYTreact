@@ -1,38 +1,45 @@
 // Include React
 var React = require("react");
 
-var Chat = React.createClass({
+var Search = React.createClass({
 
   // Here we render the component
   render: function() {
 
     return (
+        <div className="container">
 
-      <div className="container">
+                  <div className="panel panel-default text-center">
+                    <div className="panel-heading"><h3>Search</h3></div>
+                      <div className="panel-body">
+                          <form>
+                          <div className="form-group">
+                            <h4>Topic</h4>
+                            <input type="text" className="form-control" id="topic"/>
+                          </div>
+                          <div className="form-group">
+                            <h4>Start Year</h4>
+                            <input type="number" className="form-control" id="startYear"/>
+                          </div>
+                          <div className="form-group">
+                            <h4>End Year</h4>
+                            <input type="number" className="form-control" id="endYear"/>
+                          </div>
+                          <button type="submit" className="btn btn-default">Search</button>
+                        </form>
+                      </div>
+                  </div>
 
-        <div className="row">
-
-          <div className="col-lg-12">
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Movie Info</h3>
-              </div>
-              <div className="panel-body">
-                <p><strong>mjlover:</strong> OMG I LOVE THIS PART!!! </p>
-                <p><strong>bugsboy:</strong> Best movie of all time.</p>
-                <p><strong>bigtroll:</strong> Porky needs to go on a diet.</p>
-              </div>
-            </div>
-
-          </div>
-
+                  <div className="panel panel-default">
+                    <div className="panel-heading">Results</div>
+                    <div className="panel-body">
+                      {/*}Results go here */}
+                    </div>
+                  </div>
         </div>
 
-      </div>
     );
   }
 });
 
-// Export the component back for use in other files
-module.exports = Chat;
+module.exports = Search;

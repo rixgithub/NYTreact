@@ -1,7 +1,8 @@
+
 // Include React
 var React = require("react");
 
-var Info = React.createClass({
+var Saved = React.createClass({
 
   // Here we render the component
   render: function() {
@@ -16,13 +17,10 @@ var Info = React.createClass({
 
             <div className="panel panel-default">
               <div className="panel-heading">
-                <h3 className="panel-title">Movie Info</h3>
+                <h3 className="panel-title">Saved Articles</h3>
               </div>
               <div className="panel-body">
-                <p><strong>Title:</strong> Space Jam </p>
-                <p><strong>Year:</strong> 1996</p>
-                <p><strong>Director:</strong> Joe Pytka</p>
-                <p><strong>Stars:</strong> Michael Jordan, Wayne Knight, Theresa Randle </p>
+             
               </div>
             </div>
 
@@ -35,4 +33,8 @@ var Info = React.createClass({
 });
 
 // Export the component back for use in other files
-module.exports = Info;
+module.exports = Saved;
+
+
+
+
