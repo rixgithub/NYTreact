@@ -14,14 +14,28 @@ var helpers = require('./utils/helpers.js');
 var Results = React.createClass({
 
   getInitialState: function(){
-    return {
-      title: "",
-      date: "",
-      url: "",
-      results: []
-    }
+      return {
+        title: "",
+        date: "",
+        url: "",
+        results: []
+      }
   },
 
+  componentDidUpdate: function(){
+    console.log("Results.js is didUpdate");
+    console.log(this.state);
+  },
+
+  componentWillReceiveProps: function(nextProps){
+    
+    var searchResults = nextProps.results.map(function(search, i){
+      return <div className="list-group-item" key={i}><a href={search.web_url} target="_blank">{search.headline.main}</a><br /></div>
+    });
+
+    this.setState({results: searchResults});
+  },
+  
   // Here we render the Search child component
   render: function() {
 
@@ -29,8 +43,8 @@ var Results = React.createClass({
        
                 <div className="panel panel-default text-center">
                     <div className="panel-heading"><h3>Results</h3></div>
-                    <div className="panel-body">
-                      {this.props.results}
+                     <div className="panel-body">
+                        {this.state.results}
                     </div>
                 </div>
         

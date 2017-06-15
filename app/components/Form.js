@@ -29,60 +29,24 @@ var Form = React.createClass({
       var newState = {};
       newState[event.target.id] = event.target.value;
       this.setState(newState);
-      console.log(newState);
+      // console.log(newState);
     },
 
-     // Whenever the submit button is clicked we'll use setState to set the search state
-     // Note the syntax for setting the state 
-    // handleSubmit: function(){
-    // event.preventDefault();
-    //       this.setState({
-    //       topic: this.state.topic,
-    //       startYear: this.state.startYear,
-    //       endYear: this.state.endYear
-    //       })
-    // },
-
-     // If the component changes (i.e. if a search is entered)...
+    
     handleSubmit: function() {
 
         // Run the query for the search terms
         helpers.runQuery(this.state.topic, this.state.startYear, this.state.endYear)
            .then(function(data) {
               if (data != this.state.results) {
-                  console.log("component response");
-                  console.log(data);
+                  // console.log("component response");
+                  // console.log(data);
                 this.setState({results: data});
+                // console.log(this.state.results);
               }
         }.bind(this))      
     },
-                // // If the component changes (i.e. if a search is entered)...
-                // componentDidUpdate: function() {
-
-                //   // Run the query for the address
-                //   helpers.runQuery(this.state.searchTerm).then(function(data) {
-                //     if (data !== this.state.results) {
-                //       console.log("Address", data);
-                //       this.setState({ results: data });
-
-                //       // After we've received the result... then post the search term to our history.
-                //       helpers.postHistory(this.state.searchTerm).then(function() {
-                //         console.log("Updated!");
-
-                //         // After we've done the post... then get the updated history
-                //         helpers.getHistory().then(function(response) {
-                //           console.log("Current History", response.data);
-
-                //           console.log("History", response.data);
-
-                //           this.setState({ history: response.data });
-
-                //         }.bind(this));
-                //       }.bind(this));
-                //     }
-                //   }.bind(this));
-                // },
- 
+              
     // Here we render the Main PARENT component
     render: function() {
 
