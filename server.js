@@ -36,37 +36,41 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
 });
 
-app.post('/api/saved', function(req, res) {
+
+// Post route to save articles
+// app.post('/api/saved', function(req, res) {
  
-  var content = new Article(req.body);
-  content.save(req.body, function(err, saved) {
-    if (err) {
-      console.log('Mongo Error',err);
-    } else {
-      console.log('Data has been saved',saved);
-      res.send(saved);
-    }
-  });
-});
+//   var content = new Article(req.body);
+//   content.save(req.body, function(err, saved) {
+//     if (err) {
+//       console.log('Mongo Error',err);
+//     } else {
+//       console.log('Data has been saved',saved);
+//       res.send(saved);
+//     }
+//   });
+// });
 
-app.get('/api/saved', function(req, res) {
+// Get route to find saved articles
+// app.get('/api/saved', function(req, res) {
  
-  Article.find({}, function(err, found) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(found);
-    }
-  });
-});
+//   Article.find({}, function(err, found) {
+//     if (err) {
+//       console.log(err);
+//     } else {
+//       res.json(found);
+//     }
+//   });
+// });
 
-app.delete('/api/saved/:id', function(req, res){
+// Route to delete saved articles
+// app.delete('/api/saved/:id', function(req, res){
 
-  Article.find({'_id': req.params.id}).remove()
-    .exec(function(err, doc) {
-      res.send(doc);
-  });
-});
+//   Article.find({'_id': req.params.id}).remove()
+//     .exec(function(err, doc) {
+//       res.send(doc);
+//   });
+// });
 
 
 // ************************************

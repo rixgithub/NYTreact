@@ -1,35 +1,32 @@
 
-// Include React
 var React = require("react");
+var axios = require('axios');
 
+// including children components
+var Form = require('./Form');
+var Results = require('./Results');
+
+// including helper functions
+var helpers = require('./utils/helpers.js');
+
+
+
+// Create the Saved child component
 var Saved = React.createClass({
 
-  // Here we render the component
-  render: function() {
+  // Here we render the Saved child component
+    render: function() {
 
-    return (
+        return (
 
-      <div className="container">
-
-        <div className="row">
-
-          <div className="col-lg-12">
-
-            <div className="panel panel-default">
-              <div className="panel-heading">
-                <h3 className="panel-title">Saved Articles</h3>
-              </div>
+          <div className="panel panel-default text-center">
+              <div className="panel-heading"><h3>Saved Articles</h3></div>
               <div className="panel-body">
-             
+                {/*}Results go here */}
               </div>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-    );
-  }
+          </div>   
+        );
+    }
 });
 
 // Export the component back for use in other files
