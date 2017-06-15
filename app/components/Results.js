@@ -18,7 +18,7 @@ var Results = React.createClass({
       title: "",
       date: "",
       url: "",
-      results: {}
+      results: []
     }
   },
 

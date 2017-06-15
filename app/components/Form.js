@@ -17,7 +17,7 @@ var Form = React.createClass({
             topic: "",
             startYear: "",
             endYear: "",
-            results: {}
+            results: []
           }
     },
 
