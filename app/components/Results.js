@@ -4,7 +4,7 @@ var axios = require('axios');
 // including children components
 var Form = require('./Form');
 var Saved = require('./Saved');
-
+var Link = require("react-router").Link;
 // including helper functions
 var helpers = require('./utils/helpers.js');
 
@@ -30,7 +30,7 @@ var Results = React.createClass({
                 <div className="panel panel-default text-center">
                     <div className="panel-heading"><h3>Results</h3></div>
                     <div className="panel-body">
-                      {this.props.articles}
+                      {this.props.results}
                     </div>
                 </div>
         

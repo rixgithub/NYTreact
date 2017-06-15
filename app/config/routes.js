@@ -1,6 +1,6 @@
 // Inclue the React library
 var React = require("react");
-
+var Link = require("react-router").Link;
 // Include the react-router module
 var router = require("react-router");
 

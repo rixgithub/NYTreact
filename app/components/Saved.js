@@ -1,7 +1,7 @@
 
 var React = require("react");
 var axios = require('axios');
-
+var Link = require("react-router").Link;
 // including children components
 var Form = require('./Form');
 var Results = require('./Results');
