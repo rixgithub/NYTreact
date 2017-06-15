@@ -10,8 +10,19 @@ var app = express();
 // Sets an initial port. We'll use this later in our listener
 var PORT = process.env.PORT || 3000;
 
-// MongoDB Configuration configuration (Change this URL to your own DB)
-mongoose.connect("mongodb://localhost/nytreact");
+// --------Database configuration with Mongoose-------
+// -----------Define local MongoDB URI---------
+var databaseUri = "mongodb://localhost/nytreact";
+if (process.env.MONGODB_URI) {
+	// THIS EXECUTES IF THIS IS BEING EXECUTED IN HEROKU APP
+	mongoose.connect(process.env.MONGODB_URI);
+} else {
+	// THIS EXECUTES IF THIS IS BEING EXECUTED ON LOCAL MACHINE
+	mongoose.connect(databaseUri);
+}
+// ----------End database configuration-----------
+
+
 var db = mongoose.connection;
 
 // Run Morgan for Logging
