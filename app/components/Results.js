@@ -23,14 +23,16 @@ var Results = React.createClass({
   },
 
   componentDidUpdate: function(){
-    console.log("Results.js is didUpdate");
     console.log(this.state);
   },
 
   componentWillReceiveProps: function(nextProps){
     
     var searchResults = nextProps.results.map(function(search, i){
-      return <div className="list-group-item" key={i}><a href={search.web_url} target="_blank">{search.headline.main}</a><br /><button type="button" className="btn">Save</button></div>
+      return <div className="panel-body"><div className="list-group-item" key={i}>
+      <a href={search.web_url} target="_blank">{search.headline.main}</a>
+      <br />{search.pub_date}<br />
+      <button type="button" className="btn">Save</button></div></div>
     });
 
     this.setState({results: searchResults});

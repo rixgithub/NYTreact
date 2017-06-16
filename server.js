@@ -40,8 +40,6 @@ app.use(express.static("./public"));
 var Article = require("./models/Article");
 
 // ***********Routes******************************
-
-
 // Main "/" Route. This will redirect the user to our rendered React application
 app.get("/", function(req, res) {
   res.sendFile(__dirname + "/public/index.html");
@@ -49,40 +47,39 @@ app.get("/", function(req, res) {
 
 
 // Post route to save articles
-// app.post('/api/saved', function(req, res) {
+app.post('/api/saved', function(req, res) {
  
-//   var content = new Article(req.body);
-//   content.save(req.body, function(err, saved) {
-//     if (err) {
-//       console.log('Mongo Error',err);
-//     } else {
-//       console.log('Data has been saved',saved);
-//       res.send(saved);
-//     }
-//   });
-// });
+  var content = new Article(req.body);
+  content.save(req.body, function(err, saved) {
+    if (err) {
+      console.log('Mongo Error',err);
+    } else {
+      console.log('Data has been saved',saved);
+      res.send(saved);
+    }
+  });
+});
 
 // Get route to find saved articles
-// app.get('/api/saved', function(req, res) {
+app.get('/api/saved', function(req, res) {
  
-//   Article.find({}, function(err, found) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.json(found);
-//     }
-//   });
-// });
+  Article.find({}, function(err, found) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(found);
+    }
+  });
+});
 
 // Route to delete saved articles
-// app.delete('/api/saved/:id', function(req, res){
+app.delete('/api/saved/:id', function(req, res){
 
-//   Article.find({'_id': req.params.id}).remove()
-//     .exec(function(err, doc) {
-//       res.send(doc);
-//   });
-// });
-
+  Article.find({'_id': req.params.id}).remove()
+    .exec(function(err, doc) {
+      res.send(doc);
+  });
+});
 
 // ************************************
 

@@ -12,8 +12,14 @@ var helpers = {
 				return axios.get(queryURL)
 				  .then(function (results) {
 
-				  	
-				    return(results.data.response.docs);
+				  	var tenResults = results.data.response.docs;
+				  	var fiveResults = [];
+
+				  	for (var i = 0; i < 5; i++) {
+				  		fiveResults.push(tenResults[i]);
+				  	}
+				  	return(fiveResults);
+
 				  })
 				  .catch(function (error) {
 				    console.log(error);
