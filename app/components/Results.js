@@ -30,7 +30,7 @@ var Results = React.createClass({
   componentWillReceiveProps: function(nextProps){
     
     var searchResults = nextProps.results.map(function(search, i){
-      return <div className="list-group-item" key={i}><a href={search.web_url} target="_blank">{search.headline.main}</a><br /></div>
+      return <div className="list-group-item" key={i}><a href={search.web_url} target="_blank">{search.headline.main}</a><br /><button type="button" className="btn">Save</button></div>
     });
 
     this.setState({results: searchResults});

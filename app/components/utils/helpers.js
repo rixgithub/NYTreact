@@ -11,6 +11,8 @@ var helpers = {
 				// Make a request for articles
 				return axios.get(queryURL)
 				  .then(function (results) {
+
+				  	
 				    return(results.data.response.docs);
 				  })
 				  .catch(function (error) {
