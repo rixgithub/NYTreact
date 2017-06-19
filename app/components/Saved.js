@@ -14,6 +14,12 @@ var helpers = require('./utils/helpers.js');
 // Create the Saved child component
 var Saved = React.createClass({
 
+  //  getInitialState: function(){
+  //     return {
+  //           saved: []
+  //     }
+  // },
+
   // Here we render the Saved child component
     render: function() {
 
@@ -22,7 +28,7 @@ var Saved = React.createClass({
           <div className="panel panel-default text-center">
               <div className="panel-heading"><h3>Saved Articles</h3></div>
               <div className="panel-body">
-                {/*}Results go here */}
+                
               </div>
           </div>   
         );

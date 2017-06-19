@@ -27,6 +27,16 @@ var helpers = {
 
 		},
 
+		
+		postArticle: function(title, date, url){
+
+			axios.post('/api/saved', {title: title, date: date, url: url})
+			.then(function(results){
+
+				console.log("Saved in the Database");
+				return(results);
+			})
+		}
 }
 
 module.exports = helpers;

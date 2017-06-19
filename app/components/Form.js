@@ -17,8 +17,24 @@ var Form = React.createClass({
             topic: "",
             startYear: "",
             endYear: "",
-            results: []
+            results: [],
+            saved: []
           }
+    },
+
+    saveArticle: function(title, date, url){
+      helpers.postArticle(title, date, url);
+      this.getArticle();
+    },
+
+    getArticle: function(){
+      axios.get('/api/saved')
+        .then(function(response){
+           console.log(response.data);
+          this.setState({
+            saved: response.data
+          });
+        }.bind(this));
     },
 
       // This function will respond to the user input
@@ -29,22 +45,27 @@ var Form = React.createClass({
       var newState = {};
       newState[event.target.id] = event.target.value;
       this.setState(newState);
-      // console.log(newState);
     },
 
-    
     handleSubmit: function() {
 
         // Run the query for the search terms
         helpers.runQuery(this.state.topic, this.state.startYear, this.state.endYear)
            .then(function(data) {
-              if (data != this.state.results) {
-                  // console.log("component response");
-                  // console.log(data);
+              if (data != this.state.results) {  
                 this.setState({results: data});
-                // console.log(this.state.results);
+                // console.log(this.state);
               }
         }.bind(this))      
+    },
+
+    componentDidMount: function(){
+        axios.get('/api/saved')
+          .then(function(response){
+            this.setState({
+              saved: response.data
+            });
+          }.bind(this));
     },
               
     // Here we render the Main PARENT component
@@ -77,11 +98,11 @@ var Form = React.createClass({
                 </div>
 
                 <div className="container">
-                  <Results results={this.state.results} />
+                  <Results results={this.state.results} saveArticle={this.saveArticle} />
                 </div>
 
                 <div className="container">
-                  <Saved />
+                  <Saved saved={this.state.saved} />
                 </div>
 
           </div>
