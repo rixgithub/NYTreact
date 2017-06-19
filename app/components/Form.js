@@ -27,6 +27,19 @@ var Form = React.createClass({
       this.getArticle();
     },
 
+    deleteArticle: function(article){
+      console.log(article);
+      axios.delete('/api/saved/' + article._id)
+        .then(function(response){
+          this.setState({
+            savedArticles: response.data
+          });
+          return response;
+        }.bind(this));
+
+      this.getArticle();
+    },
+
     getArticle: function(){
       axios.get('/api/saved')
         .then(function(response){
@@ -102,7 +115,7 @@ var Form = React.createClass({
                 </div>
 
                 <div className="container">
-                  <Saved saved={this.state.saved} />
+                  <Saved saved={this.state.saved} deleteArticle={this.deleteArticle} />
                 </div>
 
           </div>

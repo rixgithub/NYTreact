@@ -58,7 +58,7 @@ var Results = React.createClass({
     return (
        
                 <div className="panel panel-default text-center">
-                    <div className="panel-heading"><h3>Results</h3></div>
+                    <div className="panel-heading"><h3>Search Results</h3></div>
                      <div className="panel-body">
                         {this.state.results}
                     </div>
